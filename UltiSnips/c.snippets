@@ -54,7 +54,7 @@ snippet once "Include header once only guard"
 if not snip.c:
 	import random, string
 	filepath = re.sub(r'.*include\/', '', path)
-	name     = re.sub(r'[^A-Za-z0-9]+','_', filepath+'_'+fn).upper()
+	name     = re.sub(r'[^A-Za-z0-9]+','_', filepath).upper()
 	rand     = ''.join(random.sample(string.ascii_letters+string.digits, 8))
 	snip.rv  = ('%s_%s' % (name, rand)).upper()
 else:
