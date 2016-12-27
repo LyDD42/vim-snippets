@@ -23,6 +23,14 @@ private:
 };
 endsnippet
 
+snippet struct "struct .. (struct)"
+struct ${1:`!p snip.rv = snip.basename or "name"`} {
+	${1/(\w+).*/$1/} (${2:arguments});
+	~${1/(\w+).*/$1/} ();
+	${0:/* data */}
+};
+endsnippet
+
 snippet ns "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
 
@@ -73,7 +81,7 @@ private:
 #endif /* $2 */
 endsnippet
 
-snippet utf "Boost Test UTF header"
+snippet utf "Boost Test UTF"
 #define BOOST_TEST_MODULE ${1}
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
