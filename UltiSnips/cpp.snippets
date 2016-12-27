@@ -80,7 +80,7 @@ snippet utf "Boost Test UTF header"
 
 BOOST_AUTO_TEST_SUITE(${1:test_`!p
 if not snip.c:
-	filepath = re.sub(r'.*test*\/', '', path)
+	filepath = re.sub(r'.*test[\w_]*\/', '', path)
 	suite    = filepath.split('/')[0]
 	snip.rv  = suite.lower()
 else:
