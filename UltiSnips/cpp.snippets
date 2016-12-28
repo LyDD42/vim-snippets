@@ -86,6 +86,8 @@ snippet utf "Boost Test UTF"
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
 
+namespace utf = boost::unit_test;
+
 BOOST_AUTO_TEST_SUITE(${1:test_`!p
 if not snip.c:
 	filepath = re.sub(r'.*test[\w_]*\/', '', path)
@@ -100,14 +102,14 @@ if not snip.c:
 else:
 	snip.rv = snip.c`})
 
-BOOST_AUTO_TEST_CASE($3)
+BOOST_AUTO_TEST_CASE(${3:test_case})
 {
-	BOOST_TEST($4);
+	BOOST_TEST(${4:assertion});
 }
 
-BOOST_AUTO_TEST_SUITE_END() // test suite $2
+BOOST_AUTO_TEST_SUITE_END() // test suite ${2/(\w+).*/$2/}
 
-BOOST_AUTO_TEST_SUITE_END() // test suite $1
+BOOST_AUTO_TEST_SUITE_END() // test suite ${1/(\w+).*/$1/}
 endsnippet
 
 # vim:ft=snippets:
