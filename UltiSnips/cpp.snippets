@@ -107,9 +107,9 @@ BOOST_AUTO_TEST_CASE(${3:test_case})
 	BOOST_TEST(${4:assertion});
 }
 
-BOOST_AUTO_TEST_SUITE_END() // test suite ${2/(\w+).*/$2/}
+BOOST_AUTO_TEST_SUITE_END() // test suite ${2}
 
-BOOST_AUTO_TEST_SUITE_END() // test suite ${1/(\w+).*/$1/}
+BOOST_AUTO_TEST_SUITE_END() // test suite ${1}
 endsnippet
 
 # vim:ft=snippets:
