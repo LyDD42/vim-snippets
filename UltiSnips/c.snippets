@@ -58,8 +58,22 @@ if not snip.c:
 	rand     = ''.join(random.sample(string.ascii_letters+string.digits, 8))
 	snip.rv  = ('%s_%s' % (name, rand)).upper()
 else:
-	snip.rv = snip.c`}
+	snip.rv	 = snip.c`}
 #define $1
+
+/*! \headerfile ${2:`!p
+if not snip.c:
+	snip.rv = fn
+else:
+	snip.rv = snip.c`} "${3: `!p
+if not snip.c:
+	snip.rv = path
+else:
+	snip.rv = snip.c`}"
+	\brief ${4:brief}
+ *
+ * ${5:description}
+ */
 
 ${VISUAL}${0}
 
