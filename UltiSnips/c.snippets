@@ -49,17 +49,7 @@ for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
 }
 endsnippet
 
-snippet once "Include header once only guard"
-#ifndef ${1:`!p
-if not snip.c:
-	import random, string
-	filepath = re.sub(r'.*include\/', '', path)
-	name     = re.sub(r'[^A-Za-z0-9]+','_', filepath).upper()
-	rand     = ''.join(random.sample(string.ascii_letters+string.digits, 8))
-	snip.rv  = ('%s_%s' % (name, rand)).upper()
-else:
-	snip.rv	 = snip.c`}
-#define $1
+snippet once "Include header once only guard" b
 
 /*! \headerfile ${2:`!p
 if not snip.c:
@@ -74,6 +64,17 @@ else:
  *
  * ${5:description}
  */
+
+#ifndef ${1:`!p
+if not snip.c:
+	import random, string
+	filepath = re.sub(r'.*include\/', '', path)
+	name     = re.sub(r'[^A-Za-z0-9]+','_', filepath).upper()
+	rand     = ''.join(random.sample(string.ascii_letters+string.digits, 8))
+	snip.rv  = ('%s_%s' % (name, rand)).upper()
+else:
+	snip.rv	 = snip.c`}
+#define $1
 
 ${VISUAL}${0}
 
@@ -109,6 +110,17 @@ endsnippet
 
 snippet fund "function declaration" b
 ${1:void} ${2:function_name}(${3});
+endsnippet
+
+snippet doc "doxygen code documentation block following Qt style" b
+//! ${1:Brief description}
+/*!
+  ${VISUAL}${0:Detailed description}
+ */
+endsnippet
+
+snippet podoc "posterior documentation following Qt style" w
+/*!< ${VISUAL}${0:Posterior documentation} */
 endsnippet
 
 # vim:ft=snippets:
