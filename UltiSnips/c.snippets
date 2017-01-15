@@ -112,11 +112,24 @@ snippet fund "function declaration" b
 ${1:void} ${2:function_name}(${3});
 endsnippet
 
-snippet doc "doxygen code documentation block following Qt style" b
+snippet doc "code documentation block following Qt style, with brief description" b
 //! ${1:Brief description}
 /*!
-	${VISUAL}${0:Detailed description}
+ *	${VISUAL}${0:Detailed description}
  */
+endsnippet
+
+snippet /* "one line documentation following Qt style"
+/*! ${VISUAL}${0:Description} */
+endsnippet
+
+snippet grpdoc "group documentation block follow Qt style" b
+/*! \name ${1: Group name}
+ *	${2: Group description}
+ */
+//@{
+${VISUAL}${0}
+//@}
 endsnippet
 
 snippet podoc "posterior documentation following Qt style" w
